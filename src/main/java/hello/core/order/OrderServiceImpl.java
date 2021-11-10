@@ -3,12 +3,16 @@ package hello.core.order;
 import hello.core.discount.DiscoundPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private DiscoundPolicy discoundPolicy;
+    private final MemberRepository memberRepository;
+    private final DiscoundPolicy discoundPolicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscoundPolicy discoundPolicy) {
+        this.memberRepository = memberRepository;
+        this.discoundPolicy = discoundPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
