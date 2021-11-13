@@ -48,4 +48,12 @@ public class ApplicationContextBasicFindTest {
                 () -> ac.getBean("xxxx", MemberService.class));
     }
 
+    @Test
+    @DisplayName("빈 이름으로 조회O")
+    void findBeanByNameO(){
+//        ac.getBean("xxxx",MemberService.class);
+        assertThrows(NoSuchBeanDefinitionException.class,
+                () -> ac.getBean("xxxx", MemberService.class));
+    }
+
 }
