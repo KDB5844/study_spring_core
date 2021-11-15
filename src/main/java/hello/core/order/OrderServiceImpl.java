@@ -12,7 +12,6 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscoundPolicy discoundPolicy;
 
-    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscoundPolicy discoundPolicy) {
         this.memberRepository = memberRepository;
         this.discoundPolicy = discoundPolicy;
